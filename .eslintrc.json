@@ -5,7 +5,20 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "plugins": ["eslint-plugin-import-helpers"],
   "rules": {
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "groups": [
+          ["/^react/", "/^next/"],
+          "module",
+          "/^@shared/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/method-signature-style": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
